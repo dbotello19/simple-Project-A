@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Map
+  - Music
+  - GameManager
+  - Obstacle
+  - Strength Slot 1
+  - Strength Slot 2
+  - Strength Slot 3
+  - Strength Slot 4
+  - Strength Slot 5
+  - Strength Slot 6
+  - Perception Slot 1
+  - Perception Slot 2
+  - Perception Slot 3
+  - Perception Slot 4
+  - Perception Slot 5
+  - Perception Slot 6
+  - Dexterity Slot 1
+  - Dexterity Slot 2
+  - Dexterity Slot 3
+  - Dexterity Slot 4
+  - Dexterity Slot 5
+  - Dexterity Slot 6
+  - Double_Jump
+  - Teleport
+  - Dash
+  - Shield
+  - Fly
+  - Slither
+  - Obliterate
+  - Slow_Time
+  - Invisible
+  - HUD
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - PostProcessing
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
