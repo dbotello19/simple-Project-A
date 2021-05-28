@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [HideInInspector]
+    //[HideInInspector]
     public bool Onground;
     [HideInInspector]
     public bool Contact;
 
-    public bool JumpOnce;
-    public bool Q_DropDownActive;
-    public bool E_DropDownActive;
-    public bool R_DropDownActive;
     public static Player instance;
-    public int SPs = 0;
+
 
     //USER'S LEVELS COMPLETED
     public bool Level01Completed;
@@ -45,7 +41,9 @@ public class Player : MonoBehaviour
     {
         LoadPlayer();
 
-        DontDestroyOnLoad(gameObject);
+        
+        /*DontDestroyOnLoad(gameObject);
+
         if(instance == null)
         {
             instance = this;
@@ -54,13 +52,12 @@ public class Player : MonoBehaviour
         {
             Destroy(gameObject);
             return;
-        }
+        }*/
     }
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Map")
         {
-            JumpOnce = true;
             Onground = true;
         }
         if(collision.gameObject.tag == "Obstacle")
@@ -104,7 +101,6 @@ public class Player : MonoBehaviour
         color.y = data.Color[1];
         color.z = data.Color[2];
         GetComponent<Renderer>().material.color = new Color(color.x,color.y,color.z);
-        SPs = data.SP;
 
         Level01Completed = Level01_Complete;
         Level02Completed = Level02_Complete;

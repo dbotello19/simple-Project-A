@@ -8,7 +8,7 @@ public class gameManager : MonoBehaviour
     public GameObject completeLevelUI;
     public GameObject PauseScreenUI;
     public GameObject FailLevelUI;
-    public GameObject HUDUI;
+
     [HideInInspector]
     public Rigidbody rb;
 
@@ -19,7 +19,6 @@ public class gameManager : MonoBehaviour
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Level01Completed = true;
 
         }*/
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().SPs += 1;
 
 
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().SavePlayer();
@@ -27,20 +26,16 @@ public class gameManager : MonoBehaviour
         FindObjectOfType<PauseScreen>().OnPauseScreen = false;
         Cursor.visible = true;
         gameHasEnded = true;
-        HUDUI.SetActive(false);
         completeLevelUI.SetActive(true);
-        FindObjectOfType<PlayerProperties>().SetInActivePlayerGravity();
     }
     public void EndGame()
     {
-        FindObjectOfType<PlayerProperties>().SetInActivePlayerGravity();
 
         FindObjectOfType<PauseScreen>().OnPauseScreen = false;
         if (!gameHasEnded)
         {
             Cursor.visible = true;
             gameHasEnded = true;
-            HUDUI.SetActive(false);
             FailLevelUI.SetActive(true);
             ResetPlayerPostion();
             
@@ -62,9 +57,8 @@ public class gameManager : MonoBehaviour
     {
         Cursor.visible = true;
         FindObjectOfType<PauseScreen>().IsPaused = true;
-        HUDUI.SetActive(false);
         PauseScreenUI.SetActive(true);
-        FindObjectOfType<MainCamera>().enabled = false;
+        FindObjectOfType<CameraMovement>().enabled = false;
         Time.timeScale = 0;
 
 
@@ -74,8 +68,7 @@ public class gameManager : MonoBehaviour
         Cursor.visible = false;
         FindObjectOfType<PauseScreen>().IsPaused = false;
         PauseScreenUI.SetActive(false);
-        HUDUI.SetActive(true);
-        FindObjectOfType<MainCamera>().enabled = true;
+        FindObjectOfType<CameraMovement>().enabled = true;
         Time.timeScale = 1;
     
 

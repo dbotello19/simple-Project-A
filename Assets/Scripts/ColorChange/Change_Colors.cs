@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Change_Colors : MonoBehaviour
 {
-    Renderer Player;
+    Renderer rendPlayer;
+    GameObject Player;
+
     Color Red = new Color32(255,0,0,255);
     Color Blue = new Color32(0, 0, 255, 255);
     Color Yellow = new Color32(255, 255, 0, 255);
@@ -13,62 +15,64 @@ public class Change_Colors : MonoBehaviour
     Color Orange = new Color32(255, 165, 0, 255);
     Color HotPink = new Color32(255, 105, 180, 255);
     Color Cyan = new Color32(0, 255, 255, 255);
-    Color Black = new Color32(0, 0, 0, 255);
+    Color Black = new Color32(106, 106, 106, 255);
     Color DarkGreen = new Color32(34, 188, 34, 1);
     Color LightPink = new Color32(255, 219, 233, 1);
-    Color Brown = new Color32(225, 156, 63, 255);
+    Color Brown = new Color32(58, 38, 12, 255);
 
     private void Start()
-    {
-        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Renderer>();
+    {        
+        Player = GameObject.FindGameObjectWithTag("Player");
+
+        rendPlayer = Player.GetComponent<Renderer>();
     }
     public void RedColor()
     {
-        Player.material.color = Red;
+        rendPlayer.material.color = Red;        
     }
     public void BlueColor()
     {
-        Player.material.color = Blue;
+        rendPlayer.material.color = Blue;
     }
     public void YellowColor()
     {
-        Player.material.color = Yellow;
+        rendPlayer.material.color = Yellow;
     }
     public void LightGreenColor()
     {
-        Player.material.color = LightGreen;
+        rendPlayer.material.color = LightGreen;
     }
     public void PurpleColor()
     {
-        Player.material.color = Purple;
+        rendPlayer.material.color = Purple;
     }
     public void OrangeColor()
     {
-        Player.material.color = Orange;
+        rendPlayer.material.color = Orange;
     }
     public void HotPinkColor()
     {
-        Player.material.color = HotPink;
+        rendPlayer.material.color = HotPink;
     }
     public void CyanColor()
     {
-        Player.material.color = Cyan;
+        rendPlayer.material.color = Cyan;
     }
     public void BlackColor()
     {
-        Player.material.color = Black;
+        rendPlayer.material.color = Black;
     }
     public void DarkGreenColor()
     {
-        Player.material.color = DarkGreen;
+        rendPlayer.material.color = DarkGreen;
     }
     public void LightPinkColor()
     {
-        Player.material.color = LightPink;
+        rendPlayer.material.color = LightPink;
     }
     public void BrownColor()
     {
-        Player.material.color = Brown;
+        rendPlayer.material.color = Brown;
     }
 
 }

@@ -4,7 +4,6 @@
 public class UserData
 {
     public float[] Color;
-    public int SP;
 
     //USER'S LEVELS COMPLETED
     public bool Level01Completed;
@@ -36,9 +35,7 @@ public class UserData
         Color[1] = player.GetComponent<Renderer>().material.color.g;
         Color[2] = player.GetComponent<Renderer>().material.color.b;
 
-        //USER'S SKILL POINTS
-        SP = player.SPs;
-
+        
         //USER'S COMPLETED LEVELS
         Level01Completed = player.Level01Completed;
         Level02Completed = player.Level02Completed;

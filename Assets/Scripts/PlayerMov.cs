@@ -9,11 +9,10 @@ public class PlayerMov : MonoBehaviour
     private GameObject Player;
 
     // Player Movement
-    float thrust = 150f;
-    //float speed = 20f;
+    float thrust = 20f;
     Vector3 fowardforce;
     Vector3 sideforce;
-    Vector3 Jump;
+    Vector3 bounce;
 
     void OnEnable()
     {
@@ -21,7 +20,7 @@ public class PlayerMov : MonoBehaviour
 
         Camera = GetComponent<Transform>();
         rb = Player.GetComponent<Rigidbody>();
-        Jump = new Vector3(0, 30, 0);
+        bounce = new Vector3(0, 30, 0);
     }
 
 
@@ -36,17 +35,15 @@ public class PlayerMov : MonoBehaviour
 
 
         PlayerMovement();
-
-        //JUMP 
-
-            if (Player.GetComponent<Player>().Onground)
-            {
-                if (Input.GetKey(KeyCode.Space))
-                {
-                    Player.GetComponent<Player>().Onground = false;
-                    rb.AddForce(Jump * thrust);
-                }
-            }
+        
+        //bounce
+        if (Player.GetComponent<Player>().Onground)
+        {
+            var normalBounce = bounce.normalized;
+            Player.GetComponent<Player>().Onground = false;
+                rb.AddForce(bounce * thrust);
+                
+        }
        
         
 
@@ -54,6 +51,9 @@ public class PlayerMov : MonoBehaviour
 
     void PlayerMovement()
     {
+        var normalSideforce = sideforce.normalized;
+        var normalFowardforce = fowardforce.normalized;
+
         //FOWARD
             Player.transform.rotation = Quaternion.Euler(Player.transform.rotation.x, Player.transform.rotation.y, Player.transform.rotation.z);
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
